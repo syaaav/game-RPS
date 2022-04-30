@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Камень, ножницы, бумага</title>
+</head>
+<body>
+    <div class="app"></div>
+
+    <script> 
+    window.application = {
+    // функции, которые получают объект-узел контейнера и отрисовывают туда какой-то блок
+    blocks: {
+        exampleButton: '',
+        fieldInput: '',  // блок с текстом Никнейм и инпутом для ввода логина
+        loginButton: '', // блок кнопки "Логин", ещё используется в конце игры как "В лобби"
+        fieldList: '', // список игроков
+        startGame: '', // кнопка "Играть" в Лобби 
+        fieldOpponents: '', // текст 'твой логин vs логин соперника'
+        fieldMoves: '', // варианты возможных ходов
+        fieldWaitingGame: '', // ждём подключения соперника
+        fieldWaitingOppMove: '', // ждём хода соперника
+        fieldNoWinnerText: '', // пишем, что была ничья и нужно ещё раз сделать ход
+        fieldWinImg: '', // картинка на экране победы
+        fieldButtonLobby: '', // кнопка "В Лобби" в конце игры
+        fieldLoseImg: '', // картинка на экране поражения
+        fieldErrorImg: '', // картинка на экране ошибки
+        fieldButtonErrorBack: '', // кнопка "Попробовать ещё" на экране ошибки
+        }, 
+
+    // функции, которые полностью отрисовывают экран, очищают блок document.querySelector('.app')
+    // и отрисовывают туда новое содержимое
+    screens: { 
+        autorization: '', // страница авторизации
+        lobby: ' ', // страница со списком игроков
+        myMove: '', // страница моего хода
+        waitingGame: ' ', // ожидание появления соперника
+        waitingOpponentsMove: '', // ожидание хода соперника
+        win: '', // страница победы
+        lose: '', // страница поражения
+        error: '', // универсальная страница ошибки
+    },
+
+    renderScreen: function(screenName) {
+        // debugger;
+        window.application.screens['autorization'] = renderExampleScreen;
+        window.application.screens['lobby'] = renderLobbyScreen; 
+        window.application.screens['myMove'] = renderMoveScreen; 
+        window.application.screens['waitingGame'] = renderWaitingGameScreen;
+        window.application.screens['waitingOpponentsMove'] = renderWaitingOppMoveScreen;
+        window.application.screens['win'] = renderWinScreen;
+        window.application.screens['lose'] = renderLoseScreen;
+        window.application.screens['error'] = renderErrorScreen;
+        
+        // Очищаем все таймеры
+        window.application.timers.forEach((timer) => {
+                clearInterval(timer);
+            });
+
+        // Вызываем функцию построения экрана объекта
+        if (screenName in window.application.screens) {    
+            window.application.screens[screenName](); 
+        } else {
+            console.log('Такой страницы не существует');
+        }
+    },
+
+    renderBlock: function(blockName, container) {
+
+        window.application.blocks['fieldInput'] = renderInput;
+        window.application.blocks['loginButton'] = renderExampleButton; 
+        window.application.blocks['fieldList'] = renderList;
+        window.application.blocks['startGame'] = renderStartGame;
+        window.application.blocks['fieldOpponents'] = renderNamesOpponents;
+        window.application.blocks['fieldMoves'] = renderMoves;
+        window.application.blocks['fieldWaitingGame'] = renderWaitingGame;
+        window.application.blocks['fieldWaitingOppMove'] = renderWaitingOppMove;
+        window.application.blocks['fieldWinImg'] = renderWinImg;
+        window.application.blocks['fieldButtonLobby'] = renderButtonLobby; 
+        window.application.blocks['fieldLoseImg'] = renderLoseImg;
+        window.application.blocks['fieldErrorImg'] = renderErrorImg;
+        window.application.blocks['fieldButtonErrorBack'] = renderButtonErrorBack;
+        
+        // Вызываем функцию построения блока объекта
+        if (blockName in window.application.blocks) {
+            window.application.blocks[blockName](container);
+        } else {
+            console.log('Такого блока не существует');
+        }
+    },
+
+    token: '',
+
+    timers: [ ]
+    }
+
+    // создаем блок для универсальной кнопки "Играть"
+    function renderStartGame (container) { 
+        const button = document.createElement('button');
+        button.classList.add('buttonStartGame');
+        button.textContent = 'Играть';
+        container.appendChild(button);
+
+        button.addEventListener('click', (event) => { 
+            event.preventDefault();
+            httpRequest({
+                url: `https://skypro-rock-scissors-paper.herokuapp.com/start?token=${window.application.token}`,
+                onSuccess: startGame,
+                onError: showError,
+            });
+        });
+    }
+
+    // функция для создания страницы ошибки (если проблема на стороне сервера)
+    function showError () { 
+        window.application.renderScreen('error');
+        document.querySelector('.errorText').textContent = 'Дело не в вас, а в нас. Проверьте интернет подключение и поменяйте никнейм, чтобы всё заработало ;)';
+    }
+
+    </script>
+    <script src="http-request.js"></script>
+    <script src="page_Login.js"></script>
+    <script src="page_Lobby.js"></script>
+    <script src="page_Move.js"></script>
+    <script src="page_WaitingGame.js"></script>
+    <script src="page_WaitingOpponentsMove.js"></script>
+    <script src="page_Win.js"></script>
+    <script src="page_Lose.js"></script>
+    <script src="page_Error.js"></script>
+</body>
+</html>
+
+
+

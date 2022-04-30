@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.center {
+  padding-right: calc(50% - 600px);
+  padding-left: calc(50% - 600px);
+}
+
+.hidden {
+  display: none;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#afd9f7), to(#f0f2ff));
+  background: linear-gradient(90deg, #afd9f7, #f0f2ff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title {
+  font-weight: 600;
+  font-size: 34px;
+  color: #030052;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.nickname {
+  color: #030052;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.input {
+  border: 1px solid #616161;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  width: 288px;
+  height: 41px;
+  background: transparent;
+  color: #030052;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input::-webkit-input-placeholder {
+  color: #030052;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input:-ms-input-placeholder {
+  color: #030052;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input::-ms-input-placeholder {
+  color: #030052;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input::placeholder {
+  color: #030052;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.buttonLobby,
+.buttonEntry,
+.buttonStartGame,
+.buttonErrorBack {
+  margin-top: 22px;
+  background-color: #F7F6F6;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #616161;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  width: 288px;
+  height: 46px;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 500;
+  color: #030052;
+  height: 46px;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.buttonLobby:hover,
+.buttonEntry:hover,
+.buttonStartGame:hover,
+.buttonErrorBack:hover {
+  background: #030052;
+  color: #ffffff;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.emojio {
+  font-size: 76px;
+}
+
+.fieldMoves {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.playerInfo,
+.fieldNoWinnerText,
+.namesOpponents {
+  color: #030052;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 450px;
+}
+
+.rock,
+.scissors,
+.paper {
+  margin-top: 22px;
+  background-color: #F7F6F6;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #616161;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  width: 288px;
+  height: 46px;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 500;
+  color: #030052;
+  height: 46px;
+  -webkit-animation: myAnim 3s ease 0s infinite normal forwards;
+          animation: myAnim 3s ease 0s infinite normal forwards;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.rock:hover,
+.scissors:hover,
+.paper:hover {
+  background: #030052;
+  color: #ffffff;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-animation: none;
+          animation: none;
+}
+
+.errorText {
+  color: #030052;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 450px;
+}
+
+.lds-circle {
+  display: inline-block;
+  -webkit-transform: translateZ(1px);
+          transform: translateZ(1px);
+}
+
+.lds-circle > div {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+          animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@-webkit-keyframes lds-circle {
+  0%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(1800deg);
+            transform: rotateY(1800deg);
+    -webkit-animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+            animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    -webkit-transform: rotateY(3600deg);
+            transform: rotateY(3600deg);
+  }
+}
+
+@keyframes lds-circle {
+  0%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: rotateY(1800deg);
+            transform: rotateY(1800deg);
+    -webkit-animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+            animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    -webkit-transform: rotateY(3600deg);
+            transform: rotateY(3600deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

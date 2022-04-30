@@ -1,0 +1,199 @@
+* {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+
+$font_family: 'Montserrat', sans-serif;
+$color_titles: #030052;
+$color_content: #000000;
+
+@mixin title () {
+    font-weight: 600;
+    font-size: 34px;
+    color: $color_titles;
+    font-family: $font_family;
+    text-align: center;
+    max-width: 600px;
+}
+
+@mixin text () {
+    color: #030052;
+    font-family: $font_family;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 450px;
+}
+
+@mixin buttons () {
+    margin-top: 22px;
+    background-color: #F7F6F6;
+    font-family: $font_family;
+    border: 1px solid #616161;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 288px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #030052;
+    height: 46px;
+    transition: transform 1s;
+    &:hover {
+        background: #030052;
+        color: #ffffff;
+        transform: scale(1.05);
+    }
+}
+
+.center {
+    padding-right: calc(50% - 600px);
+    padding-left: calc(50% - 600px);
+}
+
+.hidden {
+    display: none;
+}
+
+.app {
+    width: 100%;    
+    height: 100vh;
+    padding: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: -webkit-linear-gradient(90deg,#afd9f7,#f0f2ff); /* Chrome 10-25, Safari 5.1-6 */ 
+    background: linear-gradient(90deg,#afd9f7,#f0f2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title {
+    @include title();
+    margin-bottom: 40px;
+}
+
+
+// страница авторизации
+.nickname {
+    color: #030052;
+    font-family: $font_family;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.input {
+    border: 1px solid #616161;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 288px;
+    height: 41px;
+    background: transparent;
+    color: $color_titles;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: $font_family;
+    &::placeholder {
+        color: $color_titles;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        font-family: $font_family;
+    }
+}
+
+.buttonLobby, // кнопка "В лобби" на страницах победы и поражения
+.buttonEntry, // кнопка "В лобби" или сразу в игру на странице авторизации
+.buttonStartGame, // универсальная кнопка начала игры
+.buttonErrorBack { // кнопка "Попробовать ещё" на странице ошибки
+    @include buttons();
+}
+
+// страница ожидания игры (ждём, когда появится соперник)
+.emojio {
+    font-size: 76px;
+}
+
+// страница нашего хода
+.fieldMoves {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerInfo, // страница Лобби
+.fieldNoWinnerText, // страница хода
+.namesOpponents { // страница хода
+    @include text();
+}
+
+.rock,
+.scissors,
+.paper {
+    margin-top: 22px;
+    background-color: #F7F6F6;
+    font-family: $font_family;
+    border: 1px solid #616161;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 288px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #030052;
+    height: 46px;
+    animation: myAnim 3s ease 0s infinite normal forwards;
+    transition: transform 1s;
+    &:hover {
+        background: #030052;
+        color: #ffffff;
+        transform: scale(1.05);
+        animation: none;
+    }
+}
+
+// обработка ошибок
+.errorText {
+    @include text();
+}
+
+.lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+}
+.lds-circle > div {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    background: #fff;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+    0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+    transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
+
