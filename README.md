@@ -13,7 +13,7 @@
 
 ## Description
 
-<p align="center"><img src=".img/RPSx4.gif" width="80%"></p>
+<p align="center"><img src="img/RPSx4.gif" width="80%"></p>
 
 The game was implemented from scratch in VanillaJS (JavaScript) according to my design. It contains a login form, several waiting screens, a game screen with 3 move options, and a "Lobby" screen with the results of all players.
 
@@ -85,7 +85,7 @@ Open [http://localhost:8080](http://localhost:8080) to view it in a browser.
 
 ## Описание
 
-<p align="center"><img src=".img/RPSx4.gif" width="80%"></p>
+<p align="center"><img src="img/RPSx4.gif" width="80%"></p>
 
 Игра была реализована с нуля на VanillaJS (JavaScript) по моему дизайну. Она содержит форму для ввода логина, несколько экранов ожидания, игровой экран с 3 вариантами хода и «Лобби» - экран с результатами всех игроков.
 
