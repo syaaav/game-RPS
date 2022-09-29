@@ -72,7 +72,7 @@ Open [http://localhost:8080](http://localhost:8080) to view it in a browser.
 
 #### _Русская версия_
 
-<h1 align="center">Игра «Кмень, ножницы, бумага»</h1>
+<h1 align="center">Игра «Камень, ножницы, бумага»</h1>
 <h2 align="center">
 
 <p align="center">
